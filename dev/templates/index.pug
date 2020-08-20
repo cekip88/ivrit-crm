@@ -8,7 +8,7 @@ block content
             nav
                 ul.nav-list
                     li.nav-item
-                        a(href='#') Dashboard main
+                        a(href='/') Dashboard main
                     li.nav-item
                         a(href='#') Meals
                             include ../img/arrow.svg
@@ -16,7 +16,7 @@ block content
                             a(href='#') Creat meal
                             a(href='#') All meals
                     li.nav-item
-                        a(href='#') Companies
+                        a(href='/company.html') Companies
                     li.nav-item
                         a(href='#') Menus
                     li.nav-item
@@ -29,50 +29,87 @@ block content
                     input(type='text' placeholder='search').search-input
                     button.search-button
                         include ../img/search.svg
-                button.button.add-button Add
+                button.button.add-button Download
             section.table-row
                 table.table
                     tbody
                         tr
-                            th Number
-                            th Name
-                            th List of dishes
-                            th Status
                             th
-                            th Date of Redact
-                            th Image
-                            th Action
+                                .td-div Number
+                            th
+                                .td-div Name of Food
+                            th
+                                .td-div List of dishes
+                            th
+                                .td-div Status
+                            th
+                                .td-div Date of Create
+                            th
+                                .td-div Date of Redact
+                            th
+                                .td-div Image
+                            th
+                                .td-div  Actions
                         tr
                             td
-                                span 1
+                                .td-div 1
                             td
-                                span Dinner
+                                .td-div Dinner
                             td
-                                span Sup, Tea, Bread
+                                .td-div Sup, Tea, Bread
                             td
-                                span Ready
+                                .td-div Ready
                             td
-                                span
+                                .td-div 10.08.2020
                             td
-                                span 20.08.2020
+                                .td-div 20.08.2020
                             td
-                                span
+                                .td-div
                             td
                                 button.table-button Redact
                         tr
                             td
-                                span 2
+                                .td-div 2
                             td
-                                span Supper
+                                .td-div Supper
                             td
-                                span Tea, Bread, Butter
+                                .td-div Tea, Bread, Butter
                             td
-                                span Cooking
+                                .td-div Cooking
                             td
-                                span
+                                .td-div 05.08.2020
                             td
-                                span 20.08.2020
+                                .td-div 20.08.2020
                             td
-                                span
+                                .td-div
                             td
                                 button.table-button Redact
+
+            section
+                form.form
+                    .form-row
+                        h3.form-title Dinner Add
+                    .form-block.form-row
+                        button.form-button Save
+                        button.form-button Cancel
+                    .form-cols
+                        .form-col
+                            .form-row
+                                input(type='text' placeholder='Name').form-input
+                            .form-row
+                                textarea(placeholder='List of Dishes').form-area
+                            .form-block
+                                h4.form-block-title Status
+                                input(type='radio' name='status' checked)#status-in
+                                label(for='status-in') In process
+                                input(type='radio' name='status')#status-not
+                                label(for='status-not') Not in process
+                        .form-col
+                            .form-block.form-block-image
+                                h4.form-block-title Image
+                                .form-file
+                                    input(type='file')#form-file
+                                    label(for='form-file').form-button Choose file
+                                fieldset
+                                    legend Drag and Drop image here
+                                    .form-drag-area

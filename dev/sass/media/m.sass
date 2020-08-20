@@ -13,7 +13,7 @@ section
 .aifs
   align-items: flex-start
 
-.jcc
+.add-button
   justify-content: center
 
 .head-mobile,
@@ -133,9 +133,11 @@ main
       path
         fill: $white
 
+.add-button
+  +w(83px)
+
 .button
   height: 30px
-  padding: 0 30px
   font-weight: 700
 
 .add-button,.search-button
@@ -159,15 +161,73 @@ main
     color: $white
     margin-left: auto
   td,th
-    white-space: pre
     border-top: 1px solid $gray-200
-  th
     padding: 10px 20px
   td
-    padding: 10px
-    line-height: 0
+    input
+      margin: 0 auto
+      display: block
+  .td-div
+    white-space: pre
   tr
     &:nth-child(even)
       background-color: $gray-100
     &:last-child td
       border-bottom: 1px solid $gray-200
+  &-actions
+    button
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0
+  &-ready
+    line-height: 1!important
+
+.form
+  +w(100%)
+  padding: 0 20px
+  &-title
+    color: $gray-700
+    font-family: $f_light
+    font-size: 24px
+  &-block
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    flex-wrap: wrap
+    &-title
+      +w(100%)
+      font-size: 18px
+      font-family: $f_light
+      margin-bottom: 10px
+  label
+    margin: 0 10px
+  &-row,&-col
+    padding-bottom: 20px
+  &-button
+    +dfc
+    height: 30px
+    padding: 0 20px
+    background-color: $violet-400
+    color: $white
+    margin-right: 20px
+  &-input,&-area
+    +w(100%)
+    border: 1px solid $violet-400
+    padding: 10px 20px
+  &-area
+    height: 100px
+  &-file
+    label
+      margin: 0
+  fieldset
+    +wh(100%,150px)
+    padding: 20px
+    border-color: $violet-400
+    margin-top: 10px
+  legend
+    padding: 0 10px
+  &-drag-area
+    +wh(100%)
+  input[type='file']
+    display: none
+

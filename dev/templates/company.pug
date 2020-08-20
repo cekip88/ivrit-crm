@@ -1,0 +1,71 @@
+extends template/main
+append vars
+    -
+        page_title= 'Company'
+block content
+    main
+        aside.nav
+            nav
+                ul.nav-list
+                    li.nav-item
+                        a(href='/') Dashboard main
+                    li.nav-item
+                        a(href='#') Meals
+                            include ../img/arrow.svg
+                        .nav-item-hidden
+                            a(href='#') Creat meal
+                            a(href='#') All meals
+                    li.nav-item
+                        a(href='/company.html') Companies
+                    li.nav-item
+                        a(href='#') Menus
+                    li.nav-item
+                        a(href='#') Orders
+                    li.nav-item
+                        a(href='#') Global Settings
+        .main
+            section.first-row
+                .search
+                    input(type='text' placeholder='search').search-input
+                    button.search-button
+                        include ../img/search.svg
+                button.button.add-button Download
+            section.table-row
+                table.table
+                    tbody
+                        tr
+                            th
+                                .td-div Number
+                            th
+                                .td-div Company Name
+                            th
+                                .td-div Food Name
+                            th
+                                .td-div Amount
+                            th
+                                .td-div Time of Order
+                            th
+                                .td-div Date of Order
+                            th
+                                .td-div Ready
+                            th
+                                .td-div Actions
+                        tr
+                            td
+                                .td-div 1
+                            td
+                                .td-div Coca-Cola
+                            td
+                                .td-div Dinner
+                            td
+                                .td-div 100
+                            td
+                                .td-div 10.08.2020
+                            td
+                                .td-div 20.08.2020
+                            td.table-ready
+                                input(type='checkbox')
+                            td.table-actions
+                                button.table-button Print
+                                button.table-button Details
+

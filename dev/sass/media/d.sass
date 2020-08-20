@@ -18,8 +18,12 @@ main
   &-item
     &:first-child
       border-top: none
-    .nav-row a
-      padding: 15px 0 15px 30px
+    &>a
+      padding: 15px 30px
+    &-show .nav-item-hidden a
+      height: 40px
+    &-hidden a
+      padding: 0 40px
 
 .first-row
   padding: 30px 0
@@ -27,6 +31,11 @@ main
 .add-button
   margin-right: 20px
 
-.table-row
-  td,th
+.table
+  th,td
     padding: 20px
+
+
+
+
+
