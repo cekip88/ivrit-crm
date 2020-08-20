@@ -1,0 +1,78 @@
+extends template/main
+append vars
+  -
+    page_title= 'Main'
+block content
+    main
+        aside.nav
+            nav
+                ul.nav-list
+                    li.nav-item
+                        a(href='#') Dashboard main
+                    li.nav-item
+                        a(href='#') Meals
+                            include ../img/arrow.svg
+                        .nav-item-hidden
+                            a(href='#') Creat meal
+                            a(href='#') All meals
+                    li.nav-item
+                        a(href='#') Companies
+                    li.nav-item
+                        a(href='#') Menus
+                    li.nav-item
+                        a(href='#') Orders
+                    li.nav-item
+                        a(href='#') Global Settings
+        .main
+            section.first-row
+                .search
+                    input(type='text' placeholder='search').search-input
+                    button.search-button
+                        include ../img/search.svg
+                button.button.add-button Add
+            section.table-row
+                table.table
+                    tbody
+                        tr
+                            th Number
+                            th Name
+                            th List of dishes
+                            th Status
+                            th
+                            th Date of Redact
+                            th Image
+                            th Action
+                        tr
+                            td
+                                span 1
+                            td
+                                span Dinner
+                            td
+                                span Sup, Tea, Bread
+                            td
+                                span Ready
+                            td
+                                span
+                            td
+                                span 20.08.2020
+                            td
+                                span
+                            td
+                                button.table-button Redact
+                        tr
+                            td
+                                span 2
+                            td
+                                span Supper
+                            td
+                                span Tea, Bread, Butter
+                            td
+                                span Cooking
+                            td
+                                span
+                            td
+                                span 20.08.2020
+                            td
+                                span
+                            td
+                                button.table-button Redact

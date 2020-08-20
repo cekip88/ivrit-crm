@@ -1,0 +1,173 @@
+$unit: 'px'
+section
+  +w(100%)
+
+.head section,.head-mobile,.nav-item a,
+.first-row,.search,.button
+  display: flex
+
+.head-mobile,.nav-item a,
+.first-row,.button
+  align-items: center
+
+.aifs
+  align-items: flex-start
+
+.jcc
+  justify-content: center
+
+.head-mobile,
+.first-row
+  justify-content: space-between
+
+.fdc,.head section
+  flex-direction: column
+
+.head,aside
+  position: fixed
+  right: 0
+  left: 0
+
+.head
+  +w(100%)
+  background-color: $violet-500
+  border-bottom: 1px solid $white
+  top: 0
+  z-index: 90
+  &,a
+    color: $white
+  &-kitchen
+    padding: 10px 20px
+    display: block
+    border-bottom: 1px solid $white
+    background-color: $violet-600
+  &-mobile
+    padding-right: 20px
+  &-name
+    font-size: 24px
+    font-weight: 600
+    padding: 10px 20px
+  &-burger
+    padding: 5px 0
+    span,&:after,&:before
+      +wh(30px, 3px)
+      transition: .35s ease
+      background-color: $white
+      display: block
+    &:before,&:after
+      content: ''
+    span
+      margin: 3px 0
+    &-clicked
+      span
+        opacity: 0
+      &:before
+        transform: rotate(45deg) translateY(5px) translateX(3px)
+      &:after
+        transform: rotate(-45deg) translateY(-6px) translateX(4px)
+
+
+main
+  margin-top: 85px
+
+.nav
+  top: 85px
+  background-color: $violet-400
+  z-index: 80
+  a
+    width: 100%
+    color: $white
+    padding: 0 15px
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &-item
+    position: relative
+    overflow: hidden
+    a
+      height: 0
+      transition: .35s ease
+      & svg
+        +w(10px)
+        transform: rotate(180deg)
+        transition: .35s ease
+        path
+          fill: $white
+    &-hidden
+      background-color: $violet-300
+      a
+        overflow: hidden
+        padding: 0 30px
+    &-show
+      .nav
+        &-item
+          &-hidden
+            a
+              height: 30px
+              border-top: 1px solid $white
+      a svg
+        transform: rotate(0)
+  &-show .nav-item
+    border-top: 1px solid $white
+    &:last-child,&:last-child .nav-item-hidden a:last-child
+      border-bottom: 1px solid $white
+    &> a
+      height: 30px
+
+
+.search
+  margin-right: 20px
+  &-input,&-button
+    height: 30px
+  &-input
+    text-align: right
+    padding: 0 10px
+    max-width: 143px
+    border: 1px solid $violet-400
+    border-right: none
+  &-button
+    +w(30px)
+    padding: 5px
+    svg
+      +w(100%)
+      path
+        fill: $white
+
+.button
+  height: 30px
+  padding: 0 30px
+  font-weight: 700
+
+.add-button,.search-button
+  background-color: $violet-400
+  color: $white
+
+.first-row
+  padding: 10px 20px
+
+.table
+  +w(100%)
+  border-collapse: collapse
+  &-row
+    overflow: auto
+    padding-bottom: 20px
+  &-button
+    +dfc
+    height: 30px
+    padding: 0 20px
+    background-color: $violet-400
+    color: $white
+    margin-left: auto
+  td,th
+    white-space: pre
+    border-top: 1px solid $gray-200
+  th
+    padding: 10px 20px
+  td
+    padding: 10px
+    line-height: 0
+  tr
+    &:nth-child(even)
+      background-color: $gray-100
+    &:last-child td
+      border-bottom: 1px solid $gray-200

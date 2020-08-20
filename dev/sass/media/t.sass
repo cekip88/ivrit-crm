@@ -1,0 +1,31 @@
+$unit: 'px'
+
+.head
+  section
+    align-items: flex-start
+  &-kitchen
+    border-right: 1px solid $white
+  &-burger
+    display: none
+
+main
+  +w(100%)
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+
+.nav
+  flex: 0 0 20%
+  position: static
+  &-item
+    border-top: 1px solid $white
+    .nav-row a
+      height: auto
+      padding: 10px 15px
+
+.main
+  +w(calc(80% - 10px))
+  padding-right: 10px
+
+.first-row
+  padding: 10px 10px 10px 0
