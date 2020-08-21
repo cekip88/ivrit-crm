@@ -1,11 +1,4 @@
 footer
     section
-    - if(fancy || slick)
-        +inc('js','js/jquery-3.3.1.min.js')
-    - if(fancy)
-        +inc('js','js/jquery.fancybox.min.js')
-    - if(slick)
-        +inc('js','slick.js')
-    - if(greensock)
-        +inc('js','js/greensock.js')
+    +inc('js','front/front.js',true)(type='module')
     +inc('js','js/main.js',true)

@@ -15,8 +15,9 @@ main
   justify-content: space-between
 
 .nav
-  flex: 0 0 20%
+  flex: 0 0 200px
   position: static
+  height: calc(100vh - 107px)
   &-item
     border-top: 1px solid $white
     &>a
@@ -24,7 +25,7 @@ main
       padding: 10px 15px
 
 .main
-  +w(calc(80% - 10px))
+  +w(calc(100% - 220px))
   padding-right: 10px
 
 .first-row
@@ -35,17 +36,4 @@ main
   padding: 0 20px
 
 .form
-  +w(594px)
-  padding: 0
-  &-cols
-    display: flex
-    justify-content: space-between
-  &-col
-    +w(49%)
-  &-block
-    &-image
-      align-items: center
-      .form-block-title
-        +w(auto)
-        margin-bottom: 0
-        margin-right: auto
+  +w(400px)

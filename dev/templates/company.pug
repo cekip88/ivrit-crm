@@ -29,43 +29,40 @@ block content
                     input(type='text' placeholder='search').search-input
                     button.search-button
                         include ../img/search.svg
-                button.button.add-button Download
+                button(data-click-action="Front:showForm" data-form-name="companyForm").button.add-button Add
             section.table-row
-                table.table
-                    tbody
+                table.table.table-companies
+                    thead
                         tr
                             th
                                 .td-div Number
                             th
                                 .td-div Company Name
                             th
-                                .td-div Food Name
+                                .td-div Description
                             th
-                                .td-div Amount
+                                .td-div Status
                             th
-                                .td-div Time of Order
-                            th
-                                .td-div Date of Order
-                            th
-                                .td-div Ready
+                                .td-div Add date
                             th
                                 .td-div Actions
-                        tr
-                            td
-                                .td-div 1
-                            td
-                                .td-div Coca-Cola
-                            td
-                                .td-div Dinner
-                            td
-                                .td-div 100
-                            td
-                                .td-div 10.08.2020
-                            td
-                                .td-div 20.08.2020
-                            td.table-ready
-                                input(type='checkbox')
-                            td.table-actions
-                                button.table-button Print
-                                button.table-button Details
-
+                    tbody
+            section(data-form="companyForm").form-section
+                form(data-submit-action="Front:saveCompany").form
+                    .form-row
+                        h3.form-title Company Add
+                    .form-row
+                        span.form-row-title Name
+                        input(type="text" name="name").form-input
+                    .form-row
+                        span.form-row-title Company Desc
+                        textarea(name="desc").form-area
+                    .form-block.form-row
+                        h4.form-block-title.form-row Status
+                        input(type="radio" name="status" checked="")#status-in
+                        label.form-status-label(for="status-in") Working
+                        input(type="radio" name="status")#status-not
+                        label(for="status-not").form-status-label Not working
+                    .form-block.form-row
+                        button.form-button Save
+                        button.form-button(type="button") Cancel

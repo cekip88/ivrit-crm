@@ -29,10 +29,10 @@ block content
                     input(type='text' placeholder='search').search-input
                     button.search-button
                         include ../img/search.svg
-                button.button.add-button Download
+                button(data-click-action="Front:showForm" data-form-name="dinnerForm").button.add-button Add
             section.table-row
-                table.table
-                    tbody
+                table.table.table-dinners
+                    thead
                         tr
                             th
                                 .td-div Number
@@ -50,66 +50,30 @@ block content
                                 .td-div Image
                             th
                                 .td-div  Actions
-                        tr
-                            td
-                                .td-div 1
-                            td
-                                .td-div Dinner
-                            td
-                                .td-div Sup, Tea, Bread
-                            td
-                                .td-div Ready
-                            td
-                                .td-div 10.08.2020
-                            td
-                                .td-div 20.08.2020
-                            td
-                                .td-div
-                            td
-                                button.table-button Redact
-                        tr
-                            td
-                                .td-div 2
-                            td
-                                .td-div Supper
-                            td
-                                .td-div Tea, Bread, Butter
-                            td
-                                .td-div Cooking
-                            td
-                                .td-div 05.08.2020
-                            td
-                                .td-div 20.08.2020
-                            td
-                                .td-div
-                            td
-                                button.table-button Redact
-
-            section
-                form.form
+                        tbody
+            section(data-form="dinnerForm").form-section
+                form(data-submit-action="Front:saveDinner").form
                     .form-row
                         h3.form-title Dinner Add
+                    .form-row
+                        span.form-row-title Name
+                        input(type='text' name='name').form-input
+                    .form-row
+                        span.form-row-title List of Dishes
+                        textarea(name='dishes-list').form-area
                     .form-block.form-row
-                        button.form-button Save
-                        button.form-button Cancel
-                    .form-cols
-                        .form-col
-                            .form-row
-                                input(type='text' placeholder='Name').form-input
-                            .form-row
-                                textarea(placeholder='List of Dishes').form-area
-                            .form-block
-                                h4.form-block-title Status
-                                input(type='radio' name='status' checked)#status-in
-                                label(for='status-in') In process
-                                input(type='radio' name='status')#status-not
-                                label(for='status-not') Not in process
-                        .form-col
-                            .form-block.form-block-image
-                                h4.form-block-title Image
-                                .form-file
-                                    input(type='file')#form-file
-                                    label(for='form-file').form-button Choose file
-                                fieldset
-                                    legend Drag and Drop image here
-                                    .form-drag-area
+                        h4.form-block-title.form-row Status
+                        input(type='radio' name='status' checked)#status-in
+                        label(for='status-in').form-status-label In process
+                        input(type='radio' name='status')#status-not
+                        label(for='status-not').form-status-label Not in process
+                    .form-row.form-block.form-image
+                        h4.form-block-title.form-image-title Image
+                        .form-image-file
+                            input(type='file' name='image')#form-file
+                            label(for='form-file').form-button Choose file
+                        .form-image-drop.form-row
+                            span.form-row-title Drag and Drop image here
+                    .form-block.form-row
+                         button.form-button Save
+                         button(type='button').form-button Cancel

@@ -30,7 +30,7 @@ section
 
 .head
   +w(100%)
-  background-color: $violet-500
+  background-color: $gray-700
   border-bottom: 1px solid $white
   top: 0
   z-index: 90
@@ -40,7 +40,7 @@ section
     padding: 10px 20px
     display: block
     border-bottom: 1px solid $white
-    background-color: $violet-600
+    background-color: $gray-600
   &-mobile
     padding-right: 20px
   &-name
@@ -72,7 +72,7 @@ main
 
 .nav
   top: 85px
-  background-color: $violet-400
+  background-color: $gray-600
   z-index: 80
   a
     width: 100%
@@ -94,17 +94,18 @@ main
         path
           fill: $white
     &-hidden
-      background-color: $violet-300
+      background-color: $gray-700
       a
         overflow: hidden
         padding: 0 30px
     &-show
+      &>a
+        border-bottom: 1px solid $white
       .nav
         &-item
           &-hidden
             a
               height: 30px
-              border-top: 1px solid $white
       a svg
         transform: rotate(0)
   &-show .nav-item
@@ -123,7 +124,7 @@ main
     text-align: right
     padding: 0 10px
     max-width: 143px
-    border: 1px solid $violet-400
+    border: 1px solid $gray-600
     border-right: none
   &-button
     +w(30px)
@@ -141,7 +142,7 @@ main
   font-weight: 700
 
 .add-button,.search-button
-  background-color: $violet-400
+  background-color: $gray-600
   color: $white
 
 .first-row
@@ -157,12 +158,13 @@ main
     +dfc
     height: 30px
     padding: 0 20px
-    background-color: $violet-400
+    background-color: $gray-600
     color: $white
     margin-left: auto
   td,th
     border-top: 1px solid $gray-200
     padding: 10px 20px
+    text-align: left
   td
     input
       margin: 0 auto
@@ -185,6 +187,8 @@ main
 .form
   +w(100%)
   padding: 0 20px
+  &-section
+    display: none
   &-title
     color: $gray-700
     font-family: $f_light
@@ -195,40 +199,48 @@ main
     justify-content: flex-start
     flex-wrap: wrap
     &-title
-      +w(100%)
       font-size: 18px
       font-family: $f_light
-      margin-bottom: 10px
-  label
-    margin-right: 10px
-    padding-left: 10px
-  &-row,&-col
+  &-row
+    +w(100%)
     padding-bottom: 20px
+    position: relative
+    &-title
+      padding: 0 10px
+      background-color: $white
+      position: absolute
+      top: -7px
+      left: 10px
   &-button
     +dfc
     height: 30px
     padding: 0 20px
-    background-color: $violet-400
+    background-color: $gray-600
     color: $white
     margin-right: 20px
+    &:last-child
+      margin-right: 0
   &-input,&-area
     +w(100%)
-    border: 1px solid $violet-400
+    border: 1px solid $gray-600
     padding: 10px 20px
+    font-size: 14px
+    color: $gray-300
   &-area
     height: 100px
-  &-file
-    label
-      margin: 0
-  fieldset
-    +wh(100%,150px)
-    padding: 20px
-    border-color: $violet-400
-    margin-top: 10px
-  legend
-    padding: 0 10px
-  &-drag-area
-    +wh(100%)
+  &-status-label
+    margin-right: 10px
+    padding-left: 10px
+  &-image
+    &-title
+      margin-right: auto
+    &-drop
+      +wh(100%,100px)
+      border: 1px solid $gray-600
+      margin-top: 20px
+      position: relative
   input[type='file']
     display: none
 
+core-modaler-inner
+  padding: 30px 0!important
