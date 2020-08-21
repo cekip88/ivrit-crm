@@ -4,28 +4,10 @@ append vars
         page_title= 'Company'
 block content
     main
-        aside.nav
-            nav
-                ul.nav-list
-                    li.nav-item
-                        a(href='/') Dashboard main
-                    li.nav-item
-                        a(href='#') Meals
-                            include ../img/arrow.svg
-                        .nav-item-hidden
-                            a(href='#') Creat meal
-                            a(href='#') All meals
-                    li.nav-item
-                        a(href='/company.html') Companies
-                    li.nav-item
-                        a(href='#') Menus
-                    li.nav-item
-                        a(href='#') Orders
-                    li.nav-item
-                        a(href='#') Global Settings
+        include parts/aside
         .main
             section.first-row
-                .search
+                .search.search-companies
                     input(type='text' placeholder='search').search-input
                     button.search-button
                         include ../img/search.svg
@@ -51,10 +33,10 @@ block content
                 form(data-submit-action="Front:saveCompany").form
                     .form-row
                         h3.form-title Company Add
-                    .form-row
+                    .form-row.form-row-border
                         span.form-row-title Name
                         input(type="text" name="name").form-input
-                    .form-row
+                    .form-row.form-row-border
                         span.form-row-title Company Desc
                         textarea(name="desc").form-area
                     .form-block.form-row
