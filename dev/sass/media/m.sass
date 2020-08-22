@@ -2,16 +2,13 @@ $unit: 'px'
 section
   +w(100%)
 
-.head section,.head-mobile,.nav-item a,
+.head-mobile,.nav-item a,
 .first-row,.search,.button
   display: flex
 
 .head-mobile,.nav-item a,
 .first-row,.button
   align-items: center
-
-.aifs
-  align-items: flex-start
 
 .add-button
   justify-content: center
@@ -20,9 +17,6 @@ section
 .first-row
   justify-content: space-between
 
-.fdc,.head section
-  flex-direction: column
-
 .head,aside
   position: fixed
   right: 0
@@ -30,15 +24,22 @@ section
 
 .head
   +w(100%)
-  background-color: $gray-700
+  background-color: $blue
   border-bottom: 1px solid $white
   top: 0
   z-index: 90
+  &-show
+    box-shadow: 0 5px 10px rgba($black,.4)
+    .head-burger
+      span
+        opacity: 0
+      &:before
+        transform: rotate(45deg) translateY(5px) translateX(3px)
+      &:after
+        transform: rotate(-45deg) translateY(-6px) translateX(4px)
   &,a
     color: $white
   &-kitchen
-    padding: 10px 20px
-    display: block
     border-bottom: 1px solid $white
     background-color: $gray-600
   &-mobile
@@ -46,7 +47,10 @@ section
   &-name
     font-size: 24px
     font-weight: 600
+  &-kitchen,&-name
     padding: 10px 20px
+    display: flex
+    align-items: center
   &-burger
     padding: 5px 0
     span,&:after,&:before
@@ -58,14 +62,6 @@ section
       content: ''
     span
       margin: 3px 0
-    &-clicked
-      span
-        opacity: 0
-      &:before
-        transform: rotate(45deg) translateY(5px) translateX(3px)
-      &:after
-        transform: rotate(-45deg) translateY(-6px) translateX(4px)
-
 
 main
   margin-top: 85px
@@ -74,76 +70,86 @@ main
   top: 85px
   background-color: $gray-600
   z-index: 80
-  a
-    width: 100%
-    color: $white
-    padding: 0 15px
-    display: flex
-    align-items: center
-    justify-content: space-between
   &-item
     position: relative
     overflow: hidden
     a
+      width: 100%
       height: 0
+      color: $white
+      padding: 0 15px
+      display: flex
+      align-items: center
+      justify-content: space-between
       transition: .35s ease
-      & svg
+      svg
         +w(10px)
         transform: rotate(180deg)
         transition: .35s ease
         path
           fill: $white
+    &-active a
+      color: $yellow
     &-hidden
       background-color: $gray-700
+      box-shadow: 0 3px 5px rgba($black,.3) inset
       a
         overflow: hidden
         padding: 0 30px
     &-show
-      &>a
-        border-bottom: 1px solid $white
       .nav
         &-item
           &-hidden
+            padding: 7px 0
             a
               height: 30px
       a svg
         transform: rotate(0)
-  &-show .nav-item
-    border-top: 1px solid $white
-    &:last-child,&:last-child .nav-item-hidden a:last-child
-      border-bottom: 1px solid $white
-    &> a
-      height: 30px
-
+  &-show
+    padding: 10px 0
+    .nav-item
+      &>a
+        height: 30px
 
 .search
-  margin-right: 20px
+  +w(calc(100% - 131px))
+  max-width: 200px
+  position: relative
   &-input,&-button
     height: 30px
   &-input
+    width: 100%
     text-align: right
-    padding: 0 10px
-    max-width: 143px
+    padding: 0 40px 0 10px
     border: 1px solid $gray-600
-    border-right: none
   &-button
-    +w(30px)
-    padding: 5px
+    +wh(28px)
+    padding: 4px
+    position: absolute
+    right: 1px
+    top: 1px
     svg
       +w(100%)
       path
         fill: $white
 
-.add-button
-  +w(83px)
-
 .button
   height: 30px
   font-weight: 700
+  padding: 0 15px
 
-.add-button,.search-button
-  background-color: $gray-600
-  color: $white
+.add,.search,.download
+  &-button
+    background-color: $blue
+    color: $white
+
+.download-button
+  span
+    display: none
+  svg
+    +wh(18px)
+    path
+      fill: $white
 
 .first-row
   padding: 10px 20px
@@ -158,7 +164,7 @@ main
     +dfc
     height: 30px
     padding: 0 20px
-    background-color: $gray-600
+    background-color: $red
     color: $white
     margin-left: auto
   td,th
@@ -169,8 +175,9 @@ main
     input
       margin: 0 auto
       display: block
-  .td-div
-    white-space: pre
+  th
+    .td-div
+      white-space: pre
   tr
     &:nth-child(even)
       background-color: $gray-100
@@ -218,7 +225,7 @@ main
     +dfc
     height: 30px
     padding: 0 20px
-    background-color: $gray-600
+    background-color: $blue
     color: $white
     margin-right: 20px
     &:last-child
@@ -253,6 +260,8 @@ main
     input
       margin-right: 10px
   .search
+    +w(100%)
+    max-width: initial
     margin-right: 0
     margin-bottom: 10px
     input
@@ -262,6 +271,50 @@ main
     &-row
       +w(100%)
       margin-bottom: 10px
+  &-select
+    &-arrow
+      position: absolute
+      +wh(30px)
+      padding: 10px
+      transition: .35s ease
+      top: 10px
+      right: 20px
+      svg
+        transition: .35s ease
+        transform: rotate(180deg)
+    &-input
+      padding-bottom: 4px
+      border-bottom: 1px solid $gray-600
+    &-list
+      +w(calc(100% - 20px))
+      max-height: 0
+      overflow: auto
+      position: absolute
+      top: 41px
+      left: 10px
+      right: 10px
+      z-index: 50
+      background-color: $white
+      box-shadow: 0 3px 3px rgba($black,.25)
+      transition: .35s ease
+    &-option
+      +w(100%)
+      text-align: left
+      padding: 5px 10px
+    &-show
+      .form-select
+        &-list
+          max-height: calc((26px * 5) + 5px)
+          padding-top: 5px
+        &-arrow
+          svg
+            transform: rotate(0)
+  &-drag-area
+    +dfc
+    +wh(100%)
+    font-weight: 700
+    font-size: 24px
+    display: none
 
 core-modaler-inner
   padding: 30px 0!important

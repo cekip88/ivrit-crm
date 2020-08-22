@@ -9,9 +9,12 @@ block content
             section.first-row
                 .search.search-companies
                     input(type='text' placeholder='search').search-input
-                    button.search-button
+                    button(data-click-action='Front:searchCompaniesById').search-button
                         include ../img/search.svg
                 button(data-click-action="Front:showForm" data-form-name="companyForm").button.add-button Add
+                button(data-click-action="Front:downloadTable" data-form-name="companyTable").button.download-button
+                    span Download
+                    include ../img/download.svg
             section.table-row
                 table.table.table-companies
                     thead
@@ -47,4 +50,4 @@ block content
                         label(for="status-not").form-status-label Not working
                     .form-block.form-row
                         button.form-button Save
-                        button.form-button(type="button") Cancel
+                        button(data-click-action='Front:clearForm' type="button").form-button Cancel

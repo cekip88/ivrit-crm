@@ -1,0 +1,87 @@
+extends template/main
+append vars
+    -
+        page_title= 'Order'
+block content
+    main
+        include parts/aside
+        .main
+            section.first-row
+                .search.search-menu
+                    input(type='text' placeholder='search').search-input
+                    button.search-button
+                        include ../img/search.svg
+                button(data-click-action="Front:showForm" data-form-name="orderForm").button.add-button Add
+                button(data-click-action="Front:downloadTable" data-form-name="orderTable").button.download-button
+                    span Download
+                    include ../img/download.svg
+            section.table-row
+                table.table.table-menu
+                    thead
+                        tr
+                            th
+                                .td-div Number
+                            th
+                                .td-div Company Name
+                            th
+                                .td-div Description
+                            th
+                                .td-div Status
+                            th
+                                .td-div Add date
+                            th
+                                .td-div Actions
+                    tbody
+            section(data-form="orderForm").form-section
+                form(data-submit-action="Front:saveOrder").form
+                    .form-row
+                        h3.form-title Order
+                    .form-block.form-row.form-row-border.form-select
+                        span.form-row-title Company Name
+                        input(type='text').form-input.form-select-input
+                        button.form-select-arrow
+                            include ../img/arrow.svg
+                        ul.form-select-list
+                            li
+                                button.form-select-option Coca-Cola
+                            li
+                                button.form-select-option Fanta
+                            li
+                                button.form-select-option Sprite
+                            li
+                                button.form-select-option Pepsi
+                            li
+                                button.form-select-option Merinda
+                            li
+                                button.form-select-option 7up
+                    .form-block.form-row.form-row-border
+                        span.form-row-title Worker Name
+                        input(type='text').form-input
+                    .form-block.form-row.form-row-border.form-select
+                        span.form-row-title Menu
+                        input(type='text').form-input.form-select-input
+                        button.form-select-arrow
+                            include ../img/arrow.svg
+                        ul.form-select-list
+                            li
+                                button.form-select-option Breakfast
+                            li
+                                button.form-select-option Dinner
+                            li
+                                button.form-select-option Lunch
+                            li
+                                button.form-select-option Tea
+                            li
+                                button.form-select-option Supper
+                    .form-block.form-row.form-row-border
+                        span.form-row-title Count
+                        input(type='text').form-input
+                    .form-block.form-row
+                        h4.form-block-title.form-row Status
+                        input(type="radio" name="status" checked="")#status-ready
+                        label.form-status-label(for="status-ready") Ready
+                        input(type="radio" name="status")#status-in-process
+                        label(for="status-in-process").form-status-label In Process
+                    .form-block.form-row
+                        button.form-button Save
+                        button(data-click-action='Front:clearForm' type="button").form-button Cancel

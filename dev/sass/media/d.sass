@@ -4,19 +4,24 @@ body
   font-size: 16px
 
 .head
-  &-name
-    padding: 20px 30px
-
-main
-  margin-top: 107px
+  &-kitchen
+    +w(251px)
+  &-kitchen,&-name
+    height: 70px
+    padding-left: 30px
 
 .main
-  +w(calc(100% - 300px))
+  +w(calc(100% - 280px))
   padding-right: 25px
 
+main
+  margin-top: 70px
+
 .nav
-  flex: 0 0 270px
+  flex: 0 0 250px
   &-item
+    &>a:hover
+      background-color: rgba($blue,.5)
     &:first-child
       border-top: none
     &>a
@@ -25,16 +30,44 @@ main
       height: 40px
     &-hidden a
       padding: 0 50px
+      &:hover
+        background-color: rgba($blue,.5)
 
 .first-row
   padding: 30px 0
+
+.search,.add,.form,.download
+  &-button
+    border: 1px solid transparent
+    &,svg
+      transition: .35s ease
+    &:hover
+      background-color: $white
+      border-color: $blue
+      svg path
+        fill: $blue
+      color: $blue
+
+.search-button:hover
+  border: none
+  border-left: 1px solid $gray-700
 
 .add-button
   margin-right: 20px
 
 .table
+  +w(100%)
   th,td
     padding: 20px
+
+.form
+  font-size: 14px
+  label
+    cursor: pointer
+  &-select
+    &-option
+      &:hover
+        background-color: $gray-200
 
 
 

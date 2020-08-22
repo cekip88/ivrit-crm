@@ -1,7 +1,7 @@
 extends template/main
 append vars
     -
-        page_title= 'Company'
+        page_title= 'Menu'
 block content
     main
         include parts/aside
@@ -9,9 +9,12 @@ block content
             section.first-row
                 .search.search-menu
                     input(type='text' placeholder='search').search-input
-                    button.search-button
+                    button(data-click-action='Front:searchMenusById').search-button
                         include ../img/search.svg
                 button(data-click-action="Front:showForm" data-form-name="menuForm").button.add-button Add
+                button(data-click-action="Front:downloadTable" data-form-name="menuTable").button.download-button
+                    span Download
+                    include ../img/download.svg
             section.table-row
                 table.table.table-menu
                     thead
@@ -19,18 +22,20 @@ block content
                             th
                                 .td-div Number
                             th
-                                .td-div Company Name
+                                .td-div Menu Name
                             th
                                 .td-div Description
                             th
                                 .td-div Status
                             th
-                                .td-div Add date
+                                .td-div Companies
+                            th
+                                .td-div Dishes
                             th
                                 .td-div Actions
                     tbody
-            section(data-form="menuForm").form-section
-                form(data-submit-action="Front:saveCompany").form
+            section(data-form="menuForm").form-section#menuForm
+                form(data-submit-action="Front:saveMenu").form
                     .form-row
                         h3.form-title Menu Add
                     .form-row.form-row-border
@@ -49,52 +54,16 @@ block content
                         span.form-row-title Companies
                         .search.search-modal-companies
                             input(type='text' placeholder='search').search-input
-                            button.search-button
+                            button(data-click-action='Front:searchCompany').search-button
                                 include ../img/search.svg
-                        ul.form-list
-                            li.form-item
-                                input(type='checkbox')#companies-1
-                                label(for='companies-1') Coca-Cola
-                            li.form-item
-                                input(type='checkbox')#companies-2
-                                label(for='companies-2') Coca-Cola
-                            li.form-item
-                                input(type='checkbox')#companies-3
-                                label(for='companies-3') Coca-Cola
-                            li.form-item
-                                input(type='checkbox')#companies-4
-                                label(for='companies-4') Coca-Cola
-                            li.form-item
-                                input(type='checkbox')#companies-5
-                                label(for='companies-5') Coca-Cola
-                            li.form-item
-                                input(type='checkbox')#companies-6
-                                label(for='companies-6') Coca-Cola
+                        ul.form-list.form-list-companies
                     .form-row.form-row-border
                         span.form-row-title Dinner List
                         .search.search-modal-dinner
                             input(type='text' placeholder='search').search-input
-                            button.search-button
+                            button(data-click-action='Front:searchDinner').search-button
                                 include ../img/search.svg
-                        ul.form-list
-                            li.form-item
-                                input(type='checkbox')#dinner-1
-                                label(for='dinner-1') Dinner
-                            li.form-item
-                                input(type='checkbox')#dinner-2
-                                label(for='dinner-2') Coca-Cola
-                            li.form-item
-                                input(type='checkbox')#dinner-3
-                                label(for='dinner-3') Lunch
-                            li.form-item
-                                input(type='checkbox')#dinner-4
-                                label(for='dinner-4') Bread
-                            li.form-item
-                                input(type='checkbox')#dinner-5
-                                label(for='dinner-5') Coffee
-                            li.form-item
-                                input(type='checkbox')#dinner-6
-                                label(for='dinner-6') Sandwich
+                        ul.form-list.form-list-dinners
                     .form-block.form-row.form-days.form-row-border
                         span.form-row-title Days
                         ul.form-days-list
@@ -121,4 +90,4 @@ block content
                                 label.form-status-label(for="Sunday") Sunday
                     .form-block.form-row
                         button.form-button Save
-                        button.form-button(type="button") Cancel
+                        button(data-click-action='Front:clearForm' type="button").form-button Cancel

@@ -12,6 +12,9 @@ block content
                     button.search-button
                         include ../img/search.svg
                 button(data-click-action="Front:showForm" data-form-name="dinnerForm").button.add-button Add
+                button(data-click-action="Front:downloadTable" data-form-name="dinnerTable").button.download-button
+                    span Download
+                    include ../img/download.svg
             section.table-row
                 table.table.table-dinners
                     thead
@@ -56,6 +59,7 @@ block content
                             label(for='form-file').form-button Choose file
                         .form-image-drop.form-row.form-row-border
                             span.form-row-title Drag and Drop image here
+                            .form-drag-area Drop image here
                     .form-block.form-row
                          button.form-button Save
-                         button(type='button').form-button Cancel
+                         button(type='button' data-click-action='Front:clearForm').form-button Cancel
